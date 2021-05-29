@@ -30,10 +30,9 @@ export const useOperations = () => {
   const handleOperator = (e) => {
     const operatorDigit = e.target.innerText;
 
-    // If the display is empty and value of the Button press = "-", set the display to operatorAigit
-    if (input === '' && operatorDigit === '-') {
-      setInput(operatorDigit);
-    } else return;
+    // if (currentState === '' && operatorDigit === '-') {
+    //   setInput(operatorDigit);
+    // } else return;
 
     if (currentState !== '' && operator !== '') {
       setOperator(operatorDigit);
@@ -49,10 +48,6 @@ export const useOperations = () => {
       setInput(previousState + operator + operatorDigit);
       setCurrentState(operatorDigit);
       setDisableBtn(true);
-    } else return;
-
-    if (input === '' && operatorDigit === '-') {
-      setInput(operatorDigit);
     } else return;
   };
 
