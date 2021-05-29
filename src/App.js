@@ -1,5 +1,4 @@
 import './App.css';
-import Button from './Component/Button';
 import { useOperations } from './useOperations';
 
 function App() {
@@ -18,7 +17,6 @@ function App() {
       <div className="calculator">
         <div className="output">{input}</div>
         <div className="key-pad">
-          {/* <Button value="7" /> */}
           <button onClick={handleDigit}>7</button>
           <button onClick={handleDigit}>8</button>
           <button onClick={handleDigit}>9</button>
