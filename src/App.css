@@ -1,7 +1,39 @@
 :root {
   --main-bg-color: #f7f8fb;
+  --calc-bg-color: #000;
   --op-btn-bg-color: rgb(128, 37, 37);
-  --calc-bg-color: lightblue;
+  --special-btn-bg-color: rgb(187, 149, 99);
+  --btn-bg-color: lightgray;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-app-region: none;
+}
+
+button {
+  font-size: 20px;
+  cursor: pointer;
+  border: 1px solid #000;
+  border-radius: 10px;
+  background-color: var(--btn-bg-color);
+  transition: background-color 100ms ease-in-out;
+}
+
+button:hover {
+  background-color: gray;
+  color: var(--btn-bg-color);
+}
+
+button:focus,
+button:active {
+  outline: none;
 }
 
 .App {
@@ -18,16 +50,23 @@
   width: 300px;
   display: flex;
   flex-direction: column;
-  background-color: var(--calc-bg-color);
   border-radius: 10px;
-  outline: 10px solid #000;
-  /* box-shadow: 0 6px 5px rgba(153, 29, 29, 0.5); */
-  /* box-shadow: 20px 20px 20px 6px rgba(0, 0, 0, 0.12); */
+  outline: 2px solid #000;
+  box-shadow: 0px 5px 15px 6px rgba(0, 0, 0, 0.3);
 }
 
 .output {
   flex: 1;
-  background-color: #fff;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 10px;
+  font-size: 30px;
+  font-weight: bold;
+  background-color: var(--calc-bg-color);
+  color: #fff;
 }
 
 .key-pad {
@@ -35,44 +74,33 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
-}
-
-input[type='text'] {
-  height: 80%;
-  width: 100%;
-  float: right;
-  text-align: right;
-  padding-right: 10px;
-  border: none;
-  font-size: 30px;
-}
-
-input:focus,
-input:active,
-button:focus,
-button:active {
-  outline: none;
-}
-
-button {
-  font-size: 20px;
-  cursor: pointer;
-  border: 1px solid #000;
-  transition: background-color 100ms ease-in-out;
-}
-
-button:hover {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-.op-div,
-.op-mul,
-.op-sub,
-.op-add {
-  background-color: var(--op-btn-bg-color);
-}
-
-.clear,
-.eq {
+  gap: 5px;
+  padding: 5px;
   background-color: var(--calc-bg-color);
+}
+
+.op-btn {
+  background-color: var(--op-btn-bg-color);
+  color: #fff;
+  transition: all 100ms ease-in-out;
+}
+
+.op-btn:hover {
+  background-color: var(--btn-bg-color);
+  color: var(--op-btn-bg-color);
+}
+
+.sp-btn {
+  background-color: var(--special-btn-bg-color);
+  color: #fff;
+  transition: all 100ms ease-in-out;
+}
+
+.sp-btn:hover {
+  background-color: var(--btn-bg-color);
+  color: var(--special-btn-bg-color);
+}
+
+.disable {
+  pointer-events: none;
 }
